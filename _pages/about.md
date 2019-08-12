@@ -2,21 +2,24 @@
 layout: about
 permalink: /
 title: <strong>Swabha Swayamdipta</strong>
-description: Young Investigator.
-              <p><a href="https://allenai.org/">Allen Institute of Artificial Intelligence</a></p>
+description:
+  <p>Postdoctoral Young Investigator, <a href="https://allenai.org/">AI2</a></p>
+  <p><a href="https://scholar.google.com/citations?user=3uTVQt0AAAAJ&hl=en&oi=ao">[Google Scholar]</a></p>
 
 profile:
   align: right
   image: swabha.jpg
-  address: >
+  address:
+    <p>2157 N Northlake Way</p>
     <p>Seattle, WA, USA 98103</p>
 
 news: true
 social: true
 ---
 
-I am a Postdoctoral Young Investigator at Allen Institute of Artificial Intelligence.
-My research interests include structured prediction in Natural Language Processing.
+I am a postdoctoral researcher at [Allen Institute of Artificial Intelligence](https://allenai.org/), working with [Yejin Choi](https://homes.cs.washington.edu/~yejin/).
+My research interests include incorporating structural inductive biases to learn better representations of language.
+I am currently part of the [MOSAIC](https://mosaic.allenai.org/) team, where I am exploring common sense knowledge graphs.
 
-I obtained my PhD from Carnegie Mellon University in May 2019.
-During most of my PhD I was a visiting student at the Paul G. Allen School of Computer Science at University of Washington in Seattle.
+I obtained my [PhD](https://www.lti.cs.cmu.edu/people/18088/swabha-swayamdipta) from Carnegie Mellon University in May 2019, where I was advised by [Noah Smith](https://homes.cs.washington.edu/~nasmith/) and [Chris Dyer](http://www.cs.cmu.edu/~cdyer/).
+During most of my PhD I was a visiting student at the [Paul G. Allen School of Computer Science](https://www.cs.washington.edu/) at University of Washington in Seattle.
