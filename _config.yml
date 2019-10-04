@@ -2,6 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 name: Swabha Swayamdipta
+title: Swabha Swayamdipta
 email: swabhas@allenai.org
 description: > # this means to ignore newlines until "url:"
   Academic Webpage.
@@ -89,7 +90,7 @@ plugins:
 # Jekyll-Scholar
 scholar:
 
-  last_name: Einstein
+  last_name: Swayamdipta
 
   style: apa
   locale: en
