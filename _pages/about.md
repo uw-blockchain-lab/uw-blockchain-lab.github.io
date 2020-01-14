@@ -4,7 +4,7 @@ permalink: /
 title: <strong>Swabha Swayamdipta</strong>
 description:
   <p>Postdoctoral Young Investigator, <a href="https://allenai.org/">AI2</a></p>
-  <p><a href="https://scholar.google.com/citations?user=3uTVQt0AAAAJ&hl=en&oi=ao">[Google Scholar]</a> <a href="assets/pdf/Academic_Curriculum_Vitae_June19.pdf">[CV]</a></p>
+  <p><a href="https://scholar.google.com/citations?user=3uTVQt0AAAAJ&hl=en&oi=ao">[Google Scholar]</a> <a href="assets/pdf/Academic_Curriculum_Vitae_Jan_2020.pdf">[CV]</a></p>
 
 profile:
   align: right
