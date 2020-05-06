@@ -21,7 +21,7 @@ I am a postdoctoral researcher at [Allen Institute of Artificial Intelligence](h
 
 My research interests include studying bias in datasets - the good, the bad and the ugly.
 *Good biases*, such as structural inductive biases beneficial for language understanding, I wrote a [PhD thesis](/assets/pdf/swabha_thesis.pdf) on these.
-On the other hand, crowd-sourced, large-scale datasets are riddled with the *bad biases* arising from [annotation artifacts](https://arxiv.org/abs/1803.02324) which are [spurious correlations](https://arxiv.org/abs/2002.04108) with unintended effects.
+On the other hand, crowd-sourced, large-scale datasets are riddled with [annotation artifacts](https://arxiv.org/abs/1803.02324) which are [spurious correlations](https://arxiv.org/abs/2002.04108) with unintended effects; I call these the *bad biases*.
 And finally, biases can be *ugly*, when the training data contains a large portion of mislabeled examples, or noise (more on this soon!).
 
 
