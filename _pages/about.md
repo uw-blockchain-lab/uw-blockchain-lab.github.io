@@ -7,7 +7,7 @@ description:
   <p>
     <a href="https://scholar.google.com/citations?user=3uTVQt0AAAAJ&hl=en&oi=ao">[Google Scholar]</a>
     <a href="https://www.semanticscholar.org/author/Swabha-Swayamdipta/2705113">[Semantic Scholar]</a>
-    <a href="assets/pdf/Academic_Curriculum_Vitae_Jan_2020.pdf">[CV]</a>
+    <a href="assets/pdf/Academic_Curriculum_Vitae_June_2020.pdf">[CV]</a>
   </p>
 
 profile:
