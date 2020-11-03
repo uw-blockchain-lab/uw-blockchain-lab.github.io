@@ -4,18 +4,18 @@ permalink: /
 title: <strong>Swabha Swayamdipta</strong>
 description:
   <p>Postdoctoral Investigator, <a href="https://allenai.org/">Allen Institute for AI</a></p>
-  <p>
-    <a href="https://scholar.google.com/citations?user=3uTVQt0AAAAJ&hl=en&oi=ao">[Google Scholar]</a>
-    <a href="https://www.semanticscholar.org/author/Swabha-Swayamdipta/2705113">[Semantic Scholar]</a>
-    <a href="assets/pdf/Academic_Curriculum_Vitae_June_2020.pdf">[CV]</a>
-  </p>
+  # <p>
+  #   <a href="https://scholar.google.com/citations?user=3uTVQt0AAAAJ&hl=en&oi=ao"><strong>Google Scholar</strong></a> &nbsp;
+  #   <a href="https://www.semanticscholar.org/author/Swabha-Swayamdipta/2705113"><strong>Semantic Scholar</strong></a> &nbsp;
+  #   <a href="assets/pdf/Academic_Curriculum_Vitae_Nov_2020.pdf"><strong>CV</strong></a>
+  # </p>
 
 profile:
   align: right
   image: swabha.jpg
-  address:
-    <p>2157 N Northlake Way</p>
-    <p>Seattle, WA, USA 98103</p>
+  # address:
+  #   <p>2157 N Northlake Way</p>
+  #   <p>Seattle, WA, USA 98103</p>
 
 news: true
 social: true
@@ -31,5 +31,7 @@ And finally, biases can be *ugly*, when the training data contains a large porti
 
 I obtained my [PhD](https://www.lti.cs.cmu.edu/people/18088/swabha-swayamdipta) from Carnegie Mellon University in May 2019, where I was advised by [Noah Smith](https://homes.cs.washington.edu/~nasmith/) and [Chris Dyer](http://www.cs.cmu.edu/~cdyer/).
 During most of my PhD I was a visiting student at the [Paul G. Allen School of Computer Science](https://www.cs.washington.edu/) at the University of Washington in Seattle.
+
+_**Update:**_ I am looking for <span style="color:brown">*academic positions*</span> in Winter / Spring 2021!
 <!-- Prior to my PhD, I obtained a Masters degree from Columbia University, working with Owen Rambow and Michael Collins.
 I received my bachelors degree in Computer Science and Engineering from National Institute of Technology, Calicut, India. -->

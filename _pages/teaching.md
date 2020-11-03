@@ -1,13 +1,16 @@
 ---
 layout: page
 permalink: /teaching/
-title: teaching
-description: Tutorials and Lectures.
+title: talks
+description: Invited Talks, Tutorials and Lectures.
 ---
 
-- Tutorial on [Transfer Learning in Natural Language Processing](https://docs.google.com/presentation/d/1fIhGikFPnb7G5kr58OvYC3GN4io7MznnM0aAgadvJfc).
+- Invited talk at Microsoft E+D Product Leads Conference.
+- Invited talk at Rising Stars in EECS 2019 at UIUC.
+- Invited talk at UW Linguistics Symposium.
+- Tutorial on [Transfer Learning in Natural Language Processing](https://docs.google.com/presentation/d/1fIhGikFPnb7G5kr58OvYC3GN4io7MznnM0aAgadvJfc) at NAACL 2019.
 - Guest lecture on Dependency Parsing for [CSE 447/547: Natural Language Processing](https://courses.cs.washington.edu/courses/cse447/19wi/), taught by Noah Smith.
-- Tutorial on [Multilingual FrameNet](https://framenet.icsi.berkeley.edu/fndrupal/node/5552/). [[Slides and References]](https://github.com/swabhs/coling18tutorial).
+- Tutorial on [Multilingual FrameNet](https://framenet.icsi.berkeley.edu/fndrupal/node/5552/). [[Slides and References]](https://github.com/swabhs/coling18tutorial) at COLING 2018.
 - Guest lecture on Minimum Bayes Risk decoding in [CSE 599 D1: Advanced Topics in Natural Language Processing](https://wammar.github.io/2018sp_uw_cse_599/), taught by Waleed Ammar.
 - Guest lecture on Dependency Parsing for [CSEP 517: Natural Language Processing](https://courses.cs.washington.edu/courses/csep517/18sp/), taught by Noah Smith.
 - Guest lecture on Unsupervised Learning for [CSE 446 Machine Learning](https://courses.cs.washington.edu/courses/cse446/17au/), taught by Noah Smith. [[Slides]](https://courses.cs.washington.edu/courses/cse446/17au/unsup.pdf)

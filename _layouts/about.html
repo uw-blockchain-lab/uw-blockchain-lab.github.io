@@ -7,6 +7,9 @@ layout: page
     {% if page.profile.image %}
       <img class="one" src="{{ page.profile.image | prepend: '/assets/img/' | prepend: site.baseurl | prepend: site.url }}">
     {% endif %}
+     {% if page.social %}
+      {% include social.html %}
+    {% endif %}
     {% if page.profile.address %}
       <div class="address">
         {{ page.profile.address }}
