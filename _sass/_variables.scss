@@ -155,10 +155,10 @@ $footer-font-size: .75rem;
 
 
 /* portfolio tinkering */
-$img_spacing: 15px;
+$img_spacing: 10px;
 $img-height: 275px;
-$caption-font-size: 12px;
-$caption-color: #aaa;
+$caption-font-size: 14px;
+$caption-color: $dark-gray;
 
 /* add on-palm to be consistent with other jekyll theme media queries */
 $on-palm:  600px !default;

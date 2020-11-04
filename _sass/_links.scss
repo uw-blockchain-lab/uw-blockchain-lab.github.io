@@ -23,6 +23,31 @@ article a, .news a {
     &:hover { color: $theme-color; }
 }
 
+.button {
+  border: line;
+  color: white;
+  padding: 4px 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+
+  &:hover {
+    color: whitesmoke;
+    text-decoration: underline;
+    }
+}
+
+.button1 {background-color: $theme-color;} /* Green */
+.button2 {background-color: $lime_green;} /* Blue */
+.button3 {background-color: $light-green; color: $mid-gray} /* Green */
+.button4 {background-color: $green-1;} /* Blue */
+.button5 {background-color: $green-2;} /* Blue */
+.button6 {background-color: $yellow;} /* Blue */
+.b-award {background-color: $orange-1; color: $mid-gray} /* Blue */
 
 // a {
 //   color: $link-color;

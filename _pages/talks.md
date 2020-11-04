@@ -1,8 +1,11 @@
 ---
 layout: page
-permalink: /teaching/
+permalink: /talks/
 title: talks
 description: Invited Talks, Tutorials and Lectures.
+profile:
+  align: right
+  image: swabha.jpg
 ---
 
 - Invited talk at Microsoft E+D Product Leads Conference.

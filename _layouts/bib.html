@@ -25,7 +25,7 @@
         {% else %}
           {% unless forloop.last %}
             {% if author.last == site.scholar.last_name %}
-              <em>{{author.first}} {{author.last}}</em>,
+              <em><i>{{author.first}} {{author.last}}</i></em>,
             {% else %}
               {% if site.data.coauthors[author.last] %}
                 <a href="{{site.data.coauthors[author.last].url}}" target="_blank">{{author.first}} {{author.last}}</a>,
@@ -67,23 +67,32 @@
   {% if entry.arxiv %}
     [<a href="http://arxiv.org/abs/{{ entry.arxiv }}" target="_blank">arXiv</a>]
   {% endif %}
-  {% if entry.html %}
-    [<a href="{{ entry.html }}" target="_blank">URL</a>]
+  {% if entry.url %}
+    <a class="button button1" href="{{ entry.url }}" target="_blank">URL</a>
+  {% endif %}
+  {% if entry.code %}
+    <a class="button button2" href="{{ entry.code }}" target="_blank">Code</a>
   {% endif %}
   {% if entry.pdf %}
-    [<a href="{{ entry.pdf | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">PDF</a>]
+    <a class="button button5" href="{{ entry.pdf | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">PDF</a>
   {% endif %}
   {% if entry.supp %}
     [<a href="{{ entry.supp | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">Supp</a>]
   {% endif %}
   {% if entry.poster %}
-    [<a href="{{ entry.poster | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">Poster</a>]
+    <a class="button button3" href="{{ entry.poster | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">Poster</a>
   {% endif %}
   {% if entry.slides %}
-    [<a href="{{ entry.slides | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">Slides</a>]
+    <a class="button button4" href="{{ entry.slides | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">Slides</a>
   {% endif %}
-  {% if entry.code %}
-    [<a href="{{ entry.code }}" target="_blank">Code</a>]
+  {% if entry.talk %}
+    <a class="button button6" href="{{ entry.talk }}" target="_blank">Talk</a>
+  {% endif %}
+  {% if entry.note %}
+    <a class="button b-award"  target="_blank">{{ entry.note }}</a>
+  {% endif %}
+  {% if entry.bibtex %}
+    <a class="abstract">Bib</a>
   {% endif %}
   </span>
 
@@ -91,6 +100,11 @@
   {% if entry.abstract %}
   <span class="abstract hidden">
     <p>{{ entry.abstract }}</p>
+  </span>
+  {% endif %}
+  {% if entry.bibtex %}
+  <span class="abstract hidden">
+    <p>{{ entry.bibtex }}</p>
   </span>
   {% endif %}
 </div>

@@ -2,7 +2,7 @@
     img {
         box-shadow: 5px 0 5px $grey-color;
         width: 100%;
-        border: 2px solid #ccc
+        border: 2px solid $mid-gray
     }
 }
 .address {
@@ -39,6 +39,6 @@
 
 .social {
     border-top: 1px solid $grey-color-light;
-    margin-top: 20px;
+    margin-top: 10px;
     padding-top: 10px;
 }
