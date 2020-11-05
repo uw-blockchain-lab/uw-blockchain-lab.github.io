@@ -3,8 +3,9 @@ a {
     text-decoration: none;
 
     &:hover {
-        color: $theme-color;
+        color: $link-hover-color;
         text-decoration: none;
+        text-decoration-color: $link-hover-color;
     }
 }
 
@@ -13,14 +14,15 @@ article a, .news a {
     font-weight: 100;
 
     &:hover {
-        text-decoration: underline;
+        color: $link-hover-color;
+        text-decoration: none;
     }
 }
 
 .social a {
     color: $text-color;
 
-    &:hover { color: $theme-color; }
+    &:hover { color: $link-hover-color; }
 }
 
 .button {
@@ -37,7 +39,8 @@ article a, .news a {
 
   &:hover {
     color: whitesmoke;
-    text-decoration: underline;
+    text-decoration: none;
+    text-decoration-color: whitesmoke;
     }
 }
 
@@ -48,6 +51,7 @@ article a, .news a {
 .button5 {background-color: $green-2;} /* Blue */
 .button6 {background-color: $yellow;} /* Blue */
 .b-award {background-color: $orange-1; color: $mid-gray} /* Blue */
+.b-venue {background-color: $white; color: $dark-green; border: line; border-style: dashed;  &:hover {color: $orange-1;}} /* Blue */
 
 // a {
 //   color: $link-color;

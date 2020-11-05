@@ -1,8 +1,17 @@
-Adams:
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
+Smith:
+    url: https://homes.cs.washington.edu/~nasmith/
 
-Podolsky:
-    url: https://en.wikipedia.org/wiki/Boris_Podolsky
+Gururangan:
+    url: https://suchin.io/
 
-Rosen:
-    url: https://en.wikipedia.org/wiki/Nathan_Rosen
+Schwartz:
+    url: https://schwartz-lab-huji.github.io/
+
+Dyer:
+    url: http://www.cs.cmu.edu/~cdyer/
+
+Thomson:
+    url: http://samthomson.com/
+
+Choi:
+    url: https://homes.cs.washington.edu/~yejin/

@@ -3,9 +3,7 @@ layout: page
 permalink: /vitae/
 title: CV
 description: Curriculum Vitae
-profile:
-  align: right
-  image: swabha.jpg
+social: true
 ---
 
 <!-- ![CV](assets/pdf/Academic_Curriculum_Vitae_Nov_2020.pdf) -->

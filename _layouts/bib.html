@@ -1,11 +1,12 @@
 ---
 ---
 
-{% if entry.abbr %}
+{% if entry.booktitle %}
   {% if site.data.venues[entry.abbr] %}
     <abbr>[<a href="{{site.data.venues[entry.abbr].url}}" target="_blank">{{entry.abbr}}</a>]</abbr>
   {% else %}
-    <abbr>[{{entry.abbr}}]</abbr>
+    {% comment %} <abbr><a class="button b-venue"  target="_blank">{{entry.booktitle}}</a></abbr> {% endcomment %}
+    <abbr class="badge">{{entry.abbr}}</abbr>
   {% endif %}
 {% endif %}
 
@@ -13,7 +14,7 @@
   {% if entry.type == "thesis" %}
     {{reference}}
   {% else %}
-    <span class="title">{{entry.title}}</span>
+    <span class="title"><b>{{entry.title}}</b></span>
     <span class="author">
       {% for author in entry.author_array %}
         {% if forloop.length == 1 %}
@@ -61,9 +62,6 @@
   {% endif %}
 
   <span class="links">
-  {% if entry.abstract %}
-    [<a class="abstract">Abs</a>]
-  {% endif %}
   {% if entry.arxiv %}
     [<a href="http://arxiv.org/abs/{{ entry.arxiv }}" target="_blank">arXiv</a>]
   {% endif %}
@@ -93,6 +91,9 @@
   {% endif %}
   {% if entry.bibtex %}
     <a class="abstract">Bib</a>
+  {% endif %}
+  {% if entry.abstract %}
+    <a class="abstract">Abstract</a>
   {% endif %}
   </span>
 
