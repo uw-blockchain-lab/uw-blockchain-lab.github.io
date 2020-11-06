@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-description: <p> Postdoctoral Investigator • <a href="https://mosaic.allenai.org/">MOSAIC</a> • <a href="https://allenai.org/">Allen Institute for AI</a> </p>
+description: Postdoctoral Investigator • <a href="https://mosaic.allenai.org/">MOSAIC</a> • <a href="https://allenai.org/">Allen Institute for AI</a>
 
 profile:
   align: right
@@ -15,7 +15,7 @@ social: false  # includes social icons at the bottom of the page
 ---
 
 
-I am a postdoctoral researcher at the [Allen Institute for AI](https://allenai.org/), on the [MOSAIC](https://mosaic.allenai.org/) team led by [Yejin Choi](https://homes.cs.washington.edu/~yejin/).
+<!-- I am a postdoctoral researcher at the [Allen Institute for AI](https://allenai.org/), on the [MOSAIC](https://mosaic.allenai.org/) team led by [Yejin Choi](https://homes.cs.washington.edu/~yejin/). -->
 
 My research focuses on studying biases in [datasets](https://arxiv.org/abs/2009.10795) and models - the good, the bad and the ugly.
 *Good biases*, such as [structural inductive biases](https://www.aclweb.org/anthology/D18-1412) are beneficial for language understanding, I wrote a [PhD thesis](/assets/pdf/swabha_thesis.pdf) on these.
