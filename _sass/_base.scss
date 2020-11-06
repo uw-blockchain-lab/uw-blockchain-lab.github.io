@@ -332,6 +332,22 @@ footer.sticky-bottom {
           border: 1px solid var(--global-theme-color);
         }
       }
+      .abbr2 {
+        height: 2rem;
+        margin-bottom: 0.5rem;
+        abbr {
+          display: inline-block;
+          background-color: var(--gray-color);
+          padding-left: 1rem;
+          padding-right: 1rem;
+          a {
+            color: white;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+      }
       .title {
         font-weight: bolder;
       }
