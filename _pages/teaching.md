@@ -16,29 +16,31 @@ nav: true
 
 ### guest lectures
 
-- Dependency Parsing for [UW CSE 447/547: Natural Language Processing](https://courses.cs.washington.edu/courses/cse447/19wi/)
-    * Primary Instructor: Noah Smith
+- Phrase-Structure Parsing for [UW CSE 447/547: Natural Language Processing](https://courses.cs.washington.edu/courses/cse447/19wi/)
+    * Co-taught with Jungo Kasai
+    * Host Instructor: Noah Smith
     * Winter 2019
 - Minimum Bayes Risk decoding in [UW CSE 599 D1: Advanced Topics in Natural Language Processing](https://wammar.github.io/2018sp_uw_cse_599/)
-    * Primary Instructor: Waleed Ammar
+    * Host Instructor: Waleed Ammar
     * Spring 2018
-- Phrase-Structure Parsing for [UW CSEP 517: Natural Language Processing](https://courses.cs.washington.edu/courses/csep517/18sp/)
-    * Primary Instructor: Noah Smith
+- Dependency Parsing for [UW CSEP 517: Natural Language Processing](https://courses.cs.washington.edu/courses/csep517/18sp/)
+    * Host Instructor: Noah Smith
     * Spring 2018
 - Unsupervised Learning for [UW CSE 446: Machine Learning](https://courses.cs.washington.edu/courses/cse446/17au/)
-    * Primary Instructor: Noah Smith
+    * Host Instructor: Noah Smith
     * Fall 2017
     * <a class="button button1" href="https://courses.cs.washington.edu/courses/cse446/17au/unsup.pdf">Slides</a>
-- Dependency Parsing with the Chu-Liu-Edmonds algorithm for [CMU 11-711: Algorithms for NLP](http://demo.clab.cs.cmu.edu/fa2014-11711/index.php/Main_Page).
-    * Co-instructor: Sam Thomson; Primary Instructors: Chris Dyer, Alon Lavie and Bob Frederking
+- Dependency Parsing with the Chu-Liu-Edmonds algorithm for [CMU 11-711: Algorithms for NLP](http://demo.clab.cs.cmu.edu/11711fa18/).
+    * Co-taught with Sam Thomson
+    * Host Instructors: Chris Dyer, Alon Lavie and Bob Frederking
     * Fall 2014
     * <a class="button button1" href="../assets/pdf/talks/cle.pdf">Slides</a>
 
 
 ### teaching assistantship
 
-- Lead TA for [CMU 11-411: Undergrad NLP](http://demo.clab.cs.cmu.edu/NLP/).
-    * Primary Instructors: Chris Dyer, Alon Lavie and Shomir Wilson
+- Head TA for [CMU 11-411: Undergrad NLP](http://demo.clab.cs.cmu.edu/NLP/).
+    * Primary Instructors: Chris Dyer, Alon W Black, and Shomir Wilson
     * Spring 2015
 
 
