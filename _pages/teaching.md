@@ -16,6 +16,10 @@ nav: true
 
 ### guest lectures
 
+- Biases and Interpretability [UT-Austin CS395T](https://www.cs.utexas.edu/~eunsol/courses/cs395t/index.html)
+    * Host Instructor: Eunsol Choi
+    * Fall 2020
+    * <a class="button button1" href="../assets/pdf/talks/utaustin-guest-lecture-biases-and-interpretability.pdf">Slides</a>
 - Phrase-Structure Parsing for [UW CSE 447/547: Natural Language Processing](https://courses.cs.washington.edu/courses/cse447/19wi/)
     * Co-taught with Jungo Kasai
     * Host Instructor: Noah Smith
