@@ -115,8 +115,9 @@ footer.sticky-bottom { border-top: 1px solid #e8e8e8; padding-top: 40px; padding
 .publications ol.bibliography li .abbr2 abbr a:hover { text-decoration: none; }
 .publications ol.bibliography li .abbrpdf { height: 2rem; margin-bottom: 0.5rem; }
 .publications ol.bibliography li .abbrpdf abbr { display: inline-block; background-color: #e75f11; padding-left: 1rem; padding-right: 1rem; }
-.publications ol.bibliography li .abbrpdf abbr a { color: rgb(231, 85, 17); }
+.publications ol.bibliography li .abbrpdf abbr a { color: #e75f11;; }
 .publications ol.bibliography li .abbrpdf abbr a:hover { text-decoration: none; }
+.publications ol.bibliography li .abbrpdf .award { color: #e75f11 !important; border: 1px solid #e75f11; }
 .publications ol.bibliography li .title { font-weight: bolder; }
 .publications ol.bibliography li .author a { border-bottom: 1px dashed var(--global-theme-color); }
 .publications ol.bibliography li .author a:hover { border-bottom-style: solid; text-decoration: none; }
