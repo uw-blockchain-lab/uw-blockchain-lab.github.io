@@ -165,6 +165,30 @@
 <p>Bitcoin achieves three key properties: it is secure under honest majority while guaranteeing 
   dynamic availability and unpredictability. The question that we ask in this work is that can 
   one design a proof-of-stake protocol that achieves all three?
+
+  Dynamic availability in bitcoin can be best understood from the evolution of Bitcoin’s total hashrate since its
+  conception. The total hashrate at any time is the total computational power that is involved in mining process at that time.
+  This total hashrate, that comprises of both honest and adversarial computational power in the system at any time, has
+  seen a change of 14 orders of magnitude! As an indicator of its availability, the Bitcoin protocol has been continuously 
+  adding transaction to the ledger for past 11 years. The main characteristic about Bitcoin guaranteeing dynamic availability 
+  is that it remains secure under honest majority. To be precise, consider that in the first year of the operation of the bitcoin, 
+  all of nodes in the system is honest with the total hash rate of 5 EH/s. At the beginning of the second year, adversary joins 
+  the system. Although the resulting adversarial hash rate is less than honest (20 EH/s vs 60 EH/s), the second year adversary rate 
+  is much higher than the first year honest rate. Now, the adversary can try to rewrite history by going back in time and mining blocks 
+  for the times when it was not online, in order to overwhelm the existing chain. However, in bitcoin, the probability of mining block 
+  is directly proportional to its computational power. Therefore, the adversary will never be able to catch up with the public chain.
+  Thus, it is safe for Bitcoin to guarantee dynamic availability to all nodes, irrespective of whether that node is honest
+  or adversarial.
+  <div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <img class="img-fluid rounded z-depth-1" src="/assets/img/bitcoin_dynamic_availability.png" alt="" title="Security in Dynamically Available Bitcoin"/>
+    </div>
+  </div>
+  <div class="caption">
+    Security in Dynamically Available Bitcoin.
+  </div>
+
+  
 </p>
 
 <p>Cite our paper:</p>
