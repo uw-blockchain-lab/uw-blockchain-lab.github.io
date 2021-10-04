@@ -162,10 +162,13 @@
     SNLI data map with respect to a RoBERTa model.
 </div> -->
 
-<p>Bitcoin achieves three key properties: it is secure under honest majority while guaranteeing 
+<p>
+  Bitcoin achieves three key properties: it is secure under honest majority while guaranteeing 
   dynamic availability and unpredictability. The question that we ask in this work is that can 
   one design a proof-of-stake protocol that achieves all three?
+</p>
 
+<p>
   Dynamic availability in bitcoin can be best understood from the evolution of Bitcoin’s total hashrate since its
   conception. The total hashrate at any time is the total computational power that is involved in mining process at that time.
   This total hashrate, that comprises of both honest and adversarial computational power in the system at any time, has
@@ -187,8 +190,22 @@
   <div class="caption">
     Security in Dynamically Available Bitcoin.
   </div>
+</p>
 
-  
+<p>
+  In context of dynamic availability in proof-of-stake, previous works, like sleepy model of consensus, snow white and
+  Ouroboros Genesis, have used longest chain protocol in an attempt to guarantee dynamic availability. However, without 
+  careful design, the longest chain protocols in proof of stake are vulnerable to costless simulation attack. So, what is
+  this costless simulation attack? 
+  <div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+      <img class="img-fluid rounded z-depth-1" src="/assets/img/costless_simulation_attack.png" alt=""
+        title="Costless Simulation Attack" />
+    </div>
+  </div>
+  <div class="caption">
+    Costless Simulation Attack.
+  </div>
 </p>
 
 <p>Cite our paper:</p>
