@@ -156,7 +156,18 @@
   </header>
 
   <article>
-      <p><span style="color:#030303e5"><strong><b>I. Dynamic availability and unpredictability in PoS blockchains </b></strong></span></p>
+      <p><span style="color:#030303e5"><strong><b>Dynamic Availability and Inpredictability in PoS Blockchains </b></strong></span></p>
+      <p> 
+        An important feature of Proof-of-Work (PoW) blockchains is full dynamic availability, allowing
+        miners to go online and offline while requiring only 50% of the online miners to be honest.
+        Existing Proofof-stake (PoS), Proof-of-Space and related protocols are able to achieve
+        this property only partially, either requiring the additional assumption
+        that adversary nodes are online from the beginning and no new adversary nodes come online
+        afterwards, or use additional trust assumptions for newly joining nodes. We propose a new
+        PoS protocol PoSAT which can provably achieve dynamic availability fully without any additional
+        assumptions. The protocol is based on the longest chain and uses a Verifiable Delay Function
+        for the block proposal lottery to provide an arrow of time.
+      </p>
       <p>
         <div class="row">
           <div class="col-sm mt-3 mt-md-0">
@@ -166,15 +177,7 @@
         </div>   
       </p>
       <p>
-        An important feature of Proof-of-Work (PoW) blockchains is full dynamic availability, allowing 
-        miners to go online and offline while requiring only 50% of the online miners to be honest. 
-        Existing Proofof-stake (PoS), Proof-of-Space and related protocols are able to achieve
-        this property only partially, either requiring the additional assumption
-        that adversary nodes are online from the beginning and no new adversary nodes come online 
-        afterwards, or use additional trust assumptions for newly joining nodes. We propose a new 
-        PoS protocol PoSAT which can provably achieve dynamic availability fully without any additional
-        assumptions. The protocol is based on the longest chain and uses a Verifiable Delay Function 
-        for the block proposal lottery to provide an arrow of time. The security analysis of the protocol
+        The security analysis of the protocol
         draws on the recently proposed technique of Nakamoto blocks as well as the theory of branching
         random walks. An additional feature of PoSAT is the complete unpredictability of who will get to 
         propose a block next, even by the winner itself. This unpredictability is at the same level of 
@@ -183,6 +186,38 @@
       </p>
 
 
+
+      <p><span style="color:#030303e5"><strong><b>Mitigating Frontrunning in Permissionless Systems
+            </b></strong></span></p>
+      <p>
+        Transaction-order-manipulation attacks have become extremelycommon in public blockchains such as Ethereum, costing
+        hundreds of millions of dollars. In these blockchains, a miner can unilaterally determine the order of transactions inside
+        a block, and this ordering is not checked by other users, leaving room for the miner to manipulate the order for its own
+        benefit. This gap is also evident from existing security results for permissionless blockchains. As prime examples, the
+        breakthrough work of Garay et al. (Eurocrypt 2015) and Pass et al. (Eurocrypt 2017) showed the security
+        properties of consistency and liveness for Nakamoto’s seminal proof-of-workprotocol. However, consistency and liveness do not
+        provide any guarantees on the relationship between the order in which transactions arrive into the network and the
+        finalized order in the ledger.
+      </p>
+      <p>
+      <div class="row">
+        <div class="col-sm mt-3 mt-md-0">
+          <img class="img-fluid rounded z-depth-1" src="/assets/img/hammurabi.png" alt="" title="Hammurabi" />
+        </div>
+      </div>
+      </p>
+      <p>
+        As a solution, a recent paper by Kelkar et al. (Crypto 2020) introduced a third useful property for consensus protocols:
+        {\em (transaction)-order-fairness}, which proposes a strong relationship between the transaction arrival order and their
+        order in the ledger. Their model was limited to the classical (permissioned) setting however, where the set of protocol
+        nodes is fixed a priori, and does not fit well for permissionless environments where order-manipulation attacks have
+        been most prominent. In this work, we initiate the investigation of order-fairness in the permissionless setting and
+        design two protocols that realize this new property addition to standard requirements of consistency and livenesss. The
+        key insight behind our protocols in providing order-fairness is that a miner can no longer unilaterally determine
+        ordering and proposals from many miners are combined in a fair way to construct the finalized ordering. As a simple but
+        unexpected corollary, we show that any fair ordering protocol achieves a powerful zero-block confirmation property,
+        through which honest transactions can be securely confirmed <span style="color:#030303e5"><em>even before they are included in any block</em></span>.
+      </p>
   </article>
 
 </div>
