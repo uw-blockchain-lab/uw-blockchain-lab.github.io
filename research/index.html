@@ -160,7 +160,8 @@
       <p> 
         An important feature of Proof-of-Work (PoW) blockchains is full dynamic availability, allowing
         miners to go online and offline while requiring only 50% of the online miners to be honest.
-        Existing Proofof-stake (PoS), Proof-of-Space and related protocols are able to achieve
+        Existing Proof-of-Stake (PoS) such as <a href="https://eprint.iacr.org/2016/889.pdf"><span style="color:#7d3494e5">Ouroboros</span></a> and 
+        <a href="https://eprint.iacr.org/2016/919.pdf"><span style="color:#7d3494e5">Snow White</span></a>, Proof-of-Space and related protocols are able to achieve
         this property only partially, either requiring the additional assumption
         that adversary nodes are online from the beginning and no new adversary nodes come online
         afterwards, or use additional trust assumptions for newly joining nodes. We propose a new
@@ -196,7 +197,8 @@
         hundreds of millions of dollars. In these blockchains, a miner can unilaterally determine the order of transactions inside
         a block, and this ordering is not checked by other users, leaving room for the miner to manipulate the order for its own
         benefit. This gap is also evident from existing security results for permissionless blockchains. As prime examples, the
-        breakthrough work of Garay et al. (Eurocrypt 2015) and Pass et al. (Eurocrypt 2017) showed the security
+        breakthrough work of <a href="https://eprint.iacr.org/2014/765.pdf"><span style="color:#7d3494e5">Garay et al.</span></a>
+        and <a href="https://eprint.iacr.org/2016/454.pdf"><span style="color:#7d3494e5">Pass et al.</span></a> showed the security
         properties of consistency and liveness for Nakamoto’s seminal proof-of-workprotocol. However, consistency and liveness do not
         provide any guarantees on the relationship between the order in which transactions arrive into the network and the
         finalized order in the ledger.
@@ -209,7 +211,7 @@
       </div>
       </p>
       <p>
-        As a solution, a recent paper by Kelkar et al. (Crypto 2020) introduced a third useful property for consensus protocols:
+        As a solution, a recent paper by <a href="https://eprint.iacr.org/2020/269.pdf"><span style="color:#7d3494e5">Kelkar et al.</span></a> introduced a third useful property for consensus protocols:
         (transaction)-order-fairness, which proposes a strong relationship between the transaction arrival order and their
         order in the ledger. Their model was limited to the classical (permissioned) setting however, where the set of protocol
         nodes is fixed a priori, and does not fit well for permissionless environments where order-manipulation attacks have
