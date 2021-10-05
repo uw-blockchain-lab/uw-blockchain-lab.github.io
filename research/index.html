@@ -290,6 +290,30 @@
     </div>
   </div>
 
+  <div class="text-justify p-0">
+    <h1 class="line" style="font-size:30px;">Scaling</h1>
+    <div class="clearfix mb-3 ml-2">
+      <h1 style="font-size:24px;">I. Coding theory for blockchains</h1>
+      <p>
+        Today's blockchains do not scale in a meaningful sense. As more nodes join the system, the efficiency of the system
+        (computation, communication, and storage) degrades, or at best stays constant. A leading idea for enabling blockchains
+        to scale efficiency is the notion of sharding: different subsets of nodes handle different portions of the blockchain,
+        thereby reducing the load for each individual node. However, existing sharding proposals achieve efficiency scaling by
+        compromising on trust - corrupting the nodes in a given shard will lead to the permanent loss of the corresponding
+        portion of data. We observe that sharding is similar to replication coding, which is known to be inefficient and fragile
+        in the coding theory community. 
+        <div class="row">
+          <div class="col-sm mt-3 mt-md-0 mb-3">
+            <img class="img-fluid rounded z-depth-1" src="/assets/img/codingtheory.jpg" alt="" title="CodingTheory" />
+          </div>
+        </div>
+        In this paper, we demonstrate a new protocol for coded storage and computation in
+        blockchains. In particular, we propose PolyShard: "polynomially coded sharding" scheme that achieves
+        information-theoretic upper bounds on the efficiency of the storage, system throughput, as well as on trust, thus
+        enabling a truly scalable system. We provide simulation results that numerically demonstrate the performance improvement
+        over state of the arts, and the scalability of the PolyShard system. Finally, we discuss potential enhancements, and
+        highlight practical considerations in building such a system.
+      </p>
 
 </div>
 
