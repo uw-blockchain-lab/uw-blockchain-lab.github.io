@@ -236,6 +236,66 @@
       <p>
       </p>
     </div>
+    <div class="clearfix mb-3 ml-2">
+      <h1 style="font-size:24px;">II. Mitigating Frontrunning in Permissionless Systems</h1>
+      <p>
+        Transaction-order-manipulation attacks have become extremelycommon in public blockchains such as Ethereum, costing
+        hundreds of millions of dollars. In these blockchains, a miner can unilaterally determine the order of transactions inside
+        a block, and this ordering is not checked by other users, leaving room for the miner to manipulate the order for its own
+        benefit. This gap is also evident from existing security results for permissionless blockchains. As prime examples, the
+        breakthrough work of <a href="https://eprint.iacr.org/2014/765.pdf"><span style="color:#7d3494e5">Garay et al.</span></a>
+        and <a href="https://eprint.iacr.org/2016/454.pdf"><span style="color:#7d3494e5">Pass et al.</span></a> showed the security
+        properties of consistency and liveness for Nakamoto’s seminal proof-of-workprotocol. However, consistency and liveness do not
+        provide any guarantees on the relationship between the order in which transactions arrive into the network and the
+        finalized order in the ledger.
+      </p>
+      <p>
+      <div class="row">
+        <div class="col-sm mt-3 mt-md-0">
+          <img class="img-fluid rounded z-depth-1" src="/assets/img/hammurabi.png" alt="" title="Hammurabi" />
+        </div>
+      </div>
+      </p>
+      <p>
+        As a solution, a recent paper by <a href="https://eprint.iacr.org/2020/269.pdf"><span style="color:#7d3494e5">Kelkar et al.</span></a> introduced a third useful property for consensus protocols:
+        (transaction)-order-fairness, which proposes a strong relationship between the transaction arrival order and their
+        order in the ledger. Their model was limited to the classical (permissioned) setting however, where the set of protocol
+        nodes is fixed a priori, and does not fit well for permissionless environments where order-manipulation attacks have
+        been most prominent. In this work, we initiate the investigation of order-fairness in the permissionless setting and
+        design two protocols that realize this new property addition to standard requirements of consistency and livenesss. The
+        key insight behind our protocols in providing order-fairness is that a miner can no longer unilaterally determine
+        ordering and proposals from many miners are combined in a fair way to construct the finalized ordering. As a simple but
+        unexpected corollary, we show that any fair ordering protocol achieves a powerful zero-block confirmation property,
+        through which honest transactions can be securely confirmed <span style="color:#030303e5"><em>even before they are included in any block</em></span>.
+      </p>
+      <p>
+      </p>
+    </div>
+
+    <div class="clearfix mb-3 ml-2">
+      <h1 style="font-size:24px;">III. Optimal latency and throughput in blockchains</h1>
+      <p>
+        The concept of a blockchain was invented by Satoshi Nakamoto to maintain a distributed ledger for an electronic payment
+        system, Bitcoin. In addition to its security, important performance measures of a blockchain protocol are its
+        transaction throughput, confirmation latency and confirmation reliability. These measures are limited by two underlying
+        physical network attributes: communication capacity and speed-of-light propagation delay. Existing systems operate far
+        away from these physical limits. 
+      </p>
+      <div class="row">
+        <div class="col-sm mt-3 mt-md-0">
+          <img class="img-fluid rounded z-depth-1" src="/assets/img/prism.jpg" alt="" title="Prism" />
+        </div>
+      </div>
+      <p>
+        In this work we introduce Prism, a new blockchain protocol, which can provably achieve
+        1) security against up to 50% adversarial hashing power; 2) optimal throughput up to the capacity C of the network; 3)
+        confirmation latency for honest transactions proportional to the propagation delay D, with confirmation error
+        probability exponentially small in the bandwidth-delay product CD; 4) eventual total ordering of all transactions. Our
+        approach to the design of this protocol is based on deconstructing the blockchain into its basic functionalities and
+        systematically scaling up these functionalities to approach their physical limits.
+      </p>
+    </div>
+
   </div>
 
   <div class="text-justify p-0">
