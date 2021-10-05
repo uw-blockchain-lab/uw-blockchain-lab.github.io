@@ -165,6 +165,46 @@
   </header>
 
   <div class="text-justify p-0">
+    <h1 class="line" style="font-size:30px;">Application</h1>
+    <div class="clearfix mb-3 ml-2">
+      <h1 style="font-size:24px;">II. Mitigating Frontrunning in Permissionless Systems</h1>
+      <p>
+        Transaction-order-manipulation attacks have become extremelycommon in public blockchains such as Ethereum, costing
+        hundreds of millions of dollars. In these blockchains, a miner can unilaterally determine the order of transactions
+        inside a block, and this ordering is not checked by other users, leaving room for the miner to manipulate the order for its
+        own benefit. This gap is also evident from existing security results for permissionless blockchains. As prime examples,
+        the breakthrough work of <a href="https://eprint.iacr.org/2014/765.pdf"><span style="color:#7d3494e5">Garay et
+        al.</span></a> and <a href="https://eprint.iacr.org/2016/454.pdf"><span style="color:#7d3494e5">Pass et al.</span></a> showed the
+        security properties of consistency and liveness for Nakamoto’s seminal proof-of-workprotocol. However, consistency and
+        liveness do not provide any guarantees on the relationship between the order in which transactions arrive into the network and the
+        finalized order in the ledger.
+      </p>
+      <div class="row">
+        <div class="col-sm mt-3 mt-md-0 mb-3">
+          <img class="img-fluid rounded z-depth-1" src="/assets/img/hammurabi.png" alt="" title="Hammurabi" />
+        </div>
+      </div>
+      <p>
+        As a solution, a recent paper by <a href="https://eprint.iacr.org/2020/269.pdf"><span style="color:#7d3494e5">Kelkar
+            et al.</span></a> introduced a third useful property for consensus protocols:
+        (transaction)-order-fairness, which proposes a strong relationship between the transaction arrival order and their
+        order in the ledger. Their model was limited to the classical (permissioned) setting however, where the set of
+        protocol nodes is fixed a priori, and does not fit well for permissionless environments where order-manipulation attacks have
+        been most prominent. In this work, we initiate the investigation of order-fairness in the permissionless setting and
+        design two protocols that realize this new property addition to standard requirements of consistency and livenesss.
+        The key insight behind our protocols in providing order-fairness is that a miner can no longer unilaterally determine
+        ordering and proposals from many miners are combined in a fair way to construct the finalized ordering. As a simple
+        but unexpected corollary, we show that any fair ordering protocol achieves a powerful zero-block confirmation property,
+        through which honest transactions can be securely confirmed <span style="color:#030303e5"><em>even before they are
+        included in any block</em></span>.
+      </p>
+      <p>
+      </p>
+    </div>
+  </div>
+
+
+  <div class="text-justify p-0">
     <h1 class="line" style="font-size:30px;">Consensus</h1>
     <div class="clearfix mb-3 ml-2">
       <h1 style="font-size:24px;">I. Dynamic Availability and Unpredictability in PoS Blockchains</h1>
@@ -199,42 +239,10 @@
     </div>
     
 
-    <div class="clearfix mb-3 ml-2">
-      <h1 style="font-size:24px;">II. Mitigating Frontrunning in Permissionless Systems</h1>
-      <p>
-        Transaction-order-manipulation attacks have become extremelycommon in public blockchains such as Ethereum, costing
-        hundreds of millions of dollars. In these blockchains, a miner can unilaterally determine the order of transactions inside
-        a block, and this ordering is not checked by other users, leaving room for the miner to manipulate the order for its own
-        benefit. This gap is also evident from existing security results for permissionless blockchains. As prime examples, the
-        breakthrough work of <a href="https://eprint.iacr.org/2014/765.pdf"><span style="color:#7d3494e5">Garay et al.</span></a>
-        and <a href="https://eprint.iacr.org/2016/454.pdf"><span style="color:#7d3494e5">Pass et al.</span></a> showed the security
-        properties of consistency and liveness for Nakamoto’s seminal proof-of-workprotocol. However, consistency and liveness do not
-        provide any guarantees on the relationship between the order in which transactions arrive into the network and the
-        finalized order in the ledger.
-      </p>
-      <div class="row">
-        <div class="col-sm mt-3 mt-md-0 mb-3">
-          <img class="img-fluid rounded z-depth-1" src="/assets/img/hammurabi.png" alt="" title="Hammurabi" />
-        </div>
-      </div>
-      <p>
-        As a solution, a recent paper by <a href="https://eprint.iacr.org/2020/269.pdf"><span style="color:#7d3494e5">Kelkar et al.</span></a> introduced a third useful property for consensus protocols:
-        (transaction)-order-fairness, which proposes a strong relationship between the transaction arrival order and their
-        order in the ledger. Their model was limited to the classical (permissioned) setting however, where the set of protocol
-        nodes is fixed a priori, and does not fit well for permissionless environments where order-manipulation attacks have
-        been most prominent. In this work, we initiate the investigation of order-fairness in the permissionless setting and
-        design two protocols that realize this new property addition to standard requirements of consistency and livenesss. The
-        key insight behind our protocols in providing order-fairness is that a miner can no longer unilaterally determine
-        ordering and proposals from many miners are combined in a fair way to construct the finalized ordering. As a simple but
-        unexpected corollary, we show that any fair ordering protocol achieves a powerful zero-block confirmation property,
-        through which honest transactions can be securely confirmed <span style="color:#030303e5"><em>even before they are included in any block</em></span>.
-      </p>
-      <p>
-      </p>
-    </div>
+    
     
     <div class="clearfix mb-3 ml-2">
-      <h1 style="font-size:24px;">III. Optimal latency and throughput in blockchains</h1>
+      <h1 style="font-size:24px;">II. Optimal latency and throughput in blockchains</h1>
       <p>
         The concept of a blockchain was invented by Satoshi Nakamoto to maintain a distributed ledger for an electronic payment
         system, Bitcoin. In addition to its security, important performance measures of a blockchain protocol are its
