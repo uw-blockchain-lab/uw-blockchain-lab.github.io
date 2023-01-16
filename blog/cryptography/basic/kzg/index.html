@@ -100,6 +100,14 @@
         margin: 1%;
         padding: 1%;
     }
+
+    .cropgif {
+        /* vertical-align: top; */
+        object-fit: cover;
+        width: 750px;
+        height: 250px;
+        object-position: 10% 40%;
+    }
    
 
 </style>
@@ -178,7 +186,7 @@
         <div class="post">
 
             <header class="post-header">
-                <h1 class="post-title">KZG</h1>
+                <h1 class="post-title">Kate-Zaverucha-Goldberg (KZG) Polynomial Commitments and its Extensions</h1>
                 <!-- <p class="desc">Also see <a href="https://scholar.google.com/citations?user=3uTVQt0AAAAJ">Google Scholar</a></p> -->
             </header>
 
@@ -193,25 +201,45 @@
                  <p>Note that MathJax 3 is <a href="https://docs.mathjax.org/en/latest/upgrading/whats-new-3.0.html" target="\_blank">a major re-write of MathJax</a> that brought a significant improvement to the loading and rendering speed, which is now <a href="http://www.intmath.com/cg5/katex-mathjax-comparison.php" target="\_blank">on par with KaTeX</a>.</p>
             
             </article> -->
-                <p>Consider the following conversation between you and your friend Bob:</p>
+            <h1 style="font-size:24px;">Motivation</h1>
+                <p>Suppose you are only one in the world who is in the possession of the following polynomial \(f(x)\) of the form:</p>  
 
+                    \[ f(x) = a_0 + a_1 x + a_2 x^2 + \cdots + a_d x^d,\]
+                <p>where \(d\) is the degree of the polynomial.</p> 
+
+                <p>What will you do if your friend wants the evaluation of this polynomial \(f(x)\) at some point \(x = 10\)?</p> 
+                
+                <p>The first option would be that you can just share your polynomial with your friend and then your friend can evaluate
+                the polynomial \(f(x)\) for herself. But what if the polynomial is very "big", that is, have very large degree \(d\) and 
+                your friend has very limited compute resource? Additionally, it could also be the case that the message channel between you and your 
+                friend has limited capacity. You might wonder that with computers being so powerful and network bandwidth being so high, how is it 
+                possible to be resource-constrained. To give you a practical example, let us consider your friend to be Ethereum post-<a href="https://notes.ethereum.org/@vbuterin/proto_danksharding_faq">EIP 4844 (proto-danksharding)</a>.
+                Here, the degree \(d\) of the polynomial can go upto \(4096\) and each evaluation point will be of size 32 bytes (let us ignore what 
+                this "big" polynomial is going to be used for). Now, unless you want to pay for high gas, your friend Ethereum's compute and bandwidth resource is all resource-constrained.
+                </p> 
+
+                <p>The alternative option would be for you to do the evaluation of the polynomial \(f(x)\) at the point \(x = 10\) and 
+                    send it to your friend. However, there is a catch as shown in the following conversation:
+                </p>
                 <div class="row">
                     <div class="col-sm mt-3 mt-md-0 mb-3">
-                    <img class="img-fluid rounded z-depth-1" src="/assets/img/kzg1.gif" alt="" title="kzg1" />
+                    <img class="img-fluid cropgif rounded z-depth-1" src="/assets/img/kzg1.gif" alt="" title="kzg1" />
                     </div>
                 </div>
 
-                <p>I am guessing the first question you might have is what is the problem with you sending the whole polynomial \(f(x)\) to your friend? 
-                    And if you are sending the polynomial \(f(x)\) to your friend, why did you have to calculate the evaluation of the
-                    polynomial \(f(x)\) at \(x=10\) in the first place? Well, to answer your second question, it my happen that:
-                    <ul>
-                        <li>Maybe your friend doesn't have enough compute power to compute evaluation of \(f(x)\). Evaluating a polynomial even with most 
-                            optimal methods like....In practice, the number of coefficients in these polynomials can be in the order of \(2^{28}\)
-                        </li>
-                    </ul>
+                <p>
+                    The catch is in how can your friend verify that the value \(y\) you sent is equal to \(f(10)\). One way to accomplish that would be to
+                    send the whole polynomial \(f(x)\), that is its coeficients \(a_i \hspace{0.1cm} \forall i \in \{0, \cdots, d\}\), which your friend can 
+                    use to evaluate \(f(10)\) and check that \(y == f(10)\) or not.  But then we encounter the aforementioned resource-constraints. Additionally, it 
+                    could be the case that, out of privacy concerns, you don't want to reveal your polynomial \(f(x)\) to anyone, even your friend.
                 </p>
 
-                <p></p>
+                
+                <h1 style="font-size:24px;">Intuition</h1>
+
+
+                <h1 style="font-size:24px;">Protocol</h1>
+
 
             </div>
         </div>
