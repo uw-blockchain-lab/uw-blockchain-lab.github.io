@@ -290,8 +290,24 @@
 
                 <h4 style="font-size:20px;"><u>1. Setup</u></h4>
                 <p>
-                    Okay, this might sound very weird at first but the first step of KZG protocol is to have many folks (preferrably from arund the world) come together to contribute 
-                    towards constructing a special object called <i>Structured Reference String (SRS)</i>.
+                    Okay, this might sound very weird at first but the first step of KZG protocol is to have a ceremony where many folks (preferrably hundreds and thousands of people from around the world) come together to contribute 
+                    towards constructing a special object called <i>powers-of-tau</i>. Sometimes, this object has also been referred to as <i>Structured Reference String (SRS)</i> (I wonder why there are 
+                    two names for the same thing).
+                </p>
+                <p> Construction of powers-of-tau requires everyone to first come to an agreement on two core assumptions:
+                    <ul>
+                        <li> define three groups \(G_1\), \(G_2\) and \(G_T\), </li>
+                        <li> define a bilinear mapping called pairing \(e: G_1 \times G_2 \rightarrow G_T\) over these three groups,</li>
+                        <li> define two positive integers \(d_1\) and \(d_2\).</li>
+                    </ul>
+                    Once this done, the power-of-tau ceremony is initiated where each participant has to choose their own random secret and then add it to a running aggregate of all random secrets added before by others. Note that
+                    you will not be able to know the random secrets of other people just by looking at the running aggregate. This important property is inherited from DL hardness assumption (see <a href="./../hardness_assumptions/index.html">here</a>)
+                    and is necessary for KZG protocol to be secure. At the end of the ceremony, the powers-of-tau setup looks something like this:
+
+                        \[\{g_1, g_1^s, g_1^{s^2}, \cdots, g_1^{s^{d_1}} \}, 
+                          \{g_2, g_2^s, g_2^{s^2}, \cdots, g_2^{s^{d_2}} \}\]
+
+                    where \(g_1\) and \(g_2\) are generators of the group \(G_1\) and \(G_2\), respectively.
                 </p>
 
                 <div class="row">
