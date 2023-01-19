@@ -108,7 +108,7 @@
         height: 250px;
         object-position: 10% 40%;
     }
-   
+    
 
 </style>
 
@@ -211,7 +211,8 @@
                 
                 <p>The first option would be that you can just share your polynomial with your friend and then your friend can evaluate
                 the polynomial \(f(x)\) for himself. But what if the polynomial is very "big", that is, have very large degree \(d\) and 
-                your friend has very limited compute resource? Additionally, it could also be the case that the message channel between you and your 
+                your friend has very limited compute resource? Even with optimal methods like <a href="https://en.wikipedia.org/wiki/Horner%27s_method">Horner's method</a>, 
+                eveluating the polynomial \(f(x)\) would take \(d\) multiplication and \(d\) addition operations. Additionally, it could also be the case that the message channel between you and your 
                 friend has limited capacity. You might wonder that with computers being so powerful and network bandwidth being so high, how is it 
                 possible to be resource-constrained. To give you a practical example, let us consider your friend to be Ethereum post-<a href="https://notes.ethereum.org/@vbuterin/proto_danksharding_faq">EIP 4844 (proto-danksharding)</a>.
                 Here, the degree \(d\) of the polynomial can go upto \(4096\) and each evaluation point will be of size 32 bytes (let us ignore what 
@@ -224,6 +225,7 @@
                 <div class="row">
                     <div class="col-sm mt-3 mt-md-0 mb-3">
                     <img class="img-fluid cropgif rounded z-depth-1" src="/assets/img/kzg1.gif" alt="" title="motivation" />
+                    <figcaption>Fig.1 Motivation. </figcaption>    
                     </div>
                 </div>
 
@@ -231,19 +233,72 @@
                     The catch is in how can your friend verify that the value \(y\) you sent is equal to \(f(10)\). One way to accomplish that would be to
                     send the whole polynomial \(f(x)\), that is its coeficients \(a_i \hspace{0.1cm} \forall i \in \{0, \cdots, d\}\), which your friend can 
                     use to evaluate \(f(10)\) and check that \(y == f(10)\) or not.  But then we encounter the aforementioned resource-constraints. Additionally, it 
-                    could be the case that, out of privacy concerns, you don't want to reveal your polynomial \(f(x)\) to anyone, even your friend.
+                    could be the case that out of privacy concerns, you don't want to reveal your polynomial \(f(x)\) to anyone, even to your friend.
                 </p>
 
                 
                 <h1 style="font-size:24px;">Intuition</h1>
+                <p>Referring to Fig.1, a wishful thinking would be what if you can generate a "very short" evidence \(\pi\) such that:
+                   <ul>
+                    <li> you can send the evidence \(\pi\) to your friend along with the value \(y\) that would convince your friend \(y == f(10)\), and </li>
+                    <li> this evidence \(\pi\) doesn't reveal anything to your friend about your polynomial \(f(x)\). This property is called <i>hiding</i>. </li>
+                   </ul>   
+                If we have such an evidence, it seems we are all set. 
+                </p>
+
+                <p>
+                But wait! Let us reverse the scenario - now your friend is claiming to be in posession of the polynomial \(f(x)\) and 
+                you want evaluation of \(f(x)\) at point \(x=10\). Would you be willing to trust your friend that she gave you the evaluation of the same 
+                polynomial for which she claimed to be in possession of?
+                </p>
+
+                <p>
+                One very natural way to solve this trust issue is to have your friend first send a short representation \(C\) of the polynomial \(f(x)\) she is in 
+                possession of. Sending this short representation is like a "commitment" that your friend is making to you about the polynomial \(f(x)\) she is 
+                in possession of. This property is called as <i>polynomial binding</i>. Now, later when you send your evaluation point, your friend would send the evidence \(\pi\) of correct evaluation which you can use 
+                along with the commitment \(C\) to verify that your friend did everything correctly!  
+                </p>
+
+                <p> The following conversation illustrates the above intuition.</p>
+
                 <div class="row">
                     <div class="col-sm mt-3 mt-md-0 mb-3">
                     <img class="img-fluid cropgif rounded z-depth-1" src="/assets/img/kzg2.gif" alt="" title="intuition" />
                     </div>
                 </div>
 
-                <h1 style="font-size:24px;">Protocol</h1>
+                <p> This above intuition is formalized in the KZG polynomial commitment protocol as described in the next section. </p>
 
+                <p> It is very important that your friend sends you the commitment \(C\) before you send your evaluation point. Otherwise, your friend can fool you 
+                    by sending a correct evaluation for a polynomial that is different from the polynomial \(f(x)\) she was claiming to 
+                    be in possession of.
+                </p>
+
+
+
+                <h1 style="font-size:24px;">KZG Polynomial Commitment Protocol</h1>
+                <p>KZG polynomial commitment was proposed by Kate (pronounced as "Katey"), Zaverucha and Goldberg in this <a href="https://www.iacr.org/archive/asiacrypt2010/6477178/6477178.pdf">paper</a> back in 2010.
+                In a change of notation that we will be following consistently from now on, we will call the person claiming to be in possession of polynomial \(f(x)\) as "prover"
+                and the other person who wants an evaluation of that polynomial \(f(x)\) (recall that this person doesn't know the coeffcients of \(f(x)\)) as "verifier".
+                </p>
+
+                <p>
+                    In order to construct the protocol around the intuition present in previous section, we will take help of cyclic groups and bilinear pairing that have been
+                    described in this <a href="./../group_theory/index.html">note</a>. The protocol proceeds in multiple steps and the pattern that you see here is followed
+                    in the more complex protocols that you will read later.
+                </p>
+
+                <h4 style="font-size:20px;"><u>1. Setup</u></h4>
+                <p>
+                    Okay, this might sound very weird at first but the first step of KZG protocol is to have many folks (preferrably from arund the world) come together to contribute 
+                    towards constructing a special object called <i>Structured Reference String (SRS)</i>.
+                </p>
+
+                <div class="row">
+                    <div class="col-sm mt-3 mt-md-0 mb-3">
+                    <img class="img-fluid cropgif rounded z-depth-1" src="/assets/img/ceremony.gif" alt="" title="intuition" />
+                    </div>
+                </div>
 
             </div>
         </div>
