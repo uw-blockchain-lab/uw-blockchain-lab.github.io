@@ -47,7 +47,7 @@
     <script defer type="text/javascript" id="MathJax-script"
         src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
     <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
+    
 
 </head>
 
@@ -109,6 +109,13 @@
         object-position: 10% 40%;
     }
     
+    .cropgif1 {
+        /* vertical-align: top; */
+        object-fit: cover;
+        width: 750px;
+        height: 320px;
+        object-position: 10% 40%;
+    }
 
 </style>
 
@@ -204,7 +211,7 @@
             <h1 style="font-size:24px;">Motivation</h1>
                 <p>Suppose you are only one in the world who is in the possession of the following polynomial \(f(x)\) of the form:</p>  
 
-                    \[ f(x) = a_0 + a_1 x + a_2 x^2 + \cdots + a_d x^d,\]
+                    \[ f(x) = a_0 + a_1 x + a_2 x^2 + \cdots + a_d x^d, \tag{1} \] 
                 <p>where \(d\) is the degree of the polynomial.</p> 
 
                 <p>What will you do if your friend wants the evaluation of this polynomial \(f(x)\) at some point \(x = 10\)?</p> 
@@ -291,23 +298,41 @@
                 <h4 style="font-size:20px;"><u>1. Setup</u></h4>
                 <p>
                     Okay, this might sound very weird at first but the first step of KZG protocol is to have a ceremony where many folks (preferrably hundreds and thousands of people from around the world) come together to contribute 
-                    towards constructing a special object called <i>powers-of-tau</i>. Sometimes, this object has also been referred to as <i>Structured Reference String (SRS)</i> (I wonder why there are 
-                    two names for the same thing).
+                    towards constructing a special object called <i>powers-of-tau</i>. I am sure this might not be apparent but powers-of-tau and its security is super-critical to get the property of polynomial binding and hiding. This 
+                    will be made clear later, please bear patience with me &#129303;.   
                 </p>
-                <p> Construction of powers-of-tau requires everyone to first come to an agreement on two core assumptions:
+                <p> Construction of powers-of-tau requires everyone to first come to an agreement on the following core parameter assumptions:
                     <ul>
-                        <li> define three groups \(G_1\), \(G_2\) and \(G_T\), </li>
-                        <li> define a bilinear mapping called pairing \(e: G_1 \times G_2 \rightarrow G_T\) over these three groups,</li>
-                        <li> define two positive integers \(d_1\) and \(d_2\).</li>
+                        <li> three groups \(G_1\), \(G_2\) and \(G_T\), </li>
+                        <li> a bilinear mapping called pairing \(e: G_1 \times G_2 \rightarrow G_T\) over these three groups,</li>
+                        <li> two positive integers \(d_1\) and \(d_2\).</li>
                     </ul>
+                    You can see this <a href="https://github.com/ethereum/kzg-ceremony-specs/blob/master/docs/cryptography/BLS.md#standard">spec</a> for ETH2 PoS to get an idea how these parameters look like.
+                </p>
+                <p> 
                     Once this done, the power-of-tau ceremony is initiated where each participant has to choose their own random secret and then add it to a running aggregate of all random secrets added before by others. Note that
-                    you will not be able to know the random secrets of other people just by looking at the running aggregate. This important property is inherited from DL hardness assumption (see <a href="./../hardness_assumptions/index.html">here</a>)
-                    and is necessary for KZG protocol to be secure. At the end of the ceremony, the powers-of-tau setup looks something like this:
+                    you will not be able to know the random secrets of other people just by looking at the running aggregate. You can read more about how this ceremony achieves this property <a href="https://vitalik.ca/general/2022/03/14/trustedsetup.html"> here </a>. 
+                    At a high-level this important property is inherited from DL hardness assumption (see <a href="./../hardness_assumptions/index.html">here</a>)
+                    and is necessary for KZG protocol to be secure.
+                </p>  
+                <p>
+                    At the end of the ceremony, the powers-of-tau setup looks something like this:
 
-                        \[\{g_1, g_1^s, g_1^{s^2}, \cdots, g_1^{s^{d_1}} \}, 
-                          \{g_2, g_2^s, g_2^{s^2}, \cdots, g_2^{s^{d_2}} \}\]
+                        $$ \begin{align}
+                            &\{[1]_1, [s]_1, [s^2]_1, \cdots, [s^{d_1}]_1 \}, \\
+                            &\{[1]_2, [s]_2, [s^2]_2, \cdots, [s^{d_2}]_2 \}
+                           \end{align} 
+                        $$
+                    Please check <a href="./../group_theory/index.html"> this </a> for further details on the above notations. Now, this powers-of-tau setup is a global knowledge that everyone will know &#127759.
+                </p>
 
-                    where \(g_1\) and \(g_2\) are generators of the group \(G_1\) and \(G_2\), respectively.
+                <p>
+                    One question is how large the size this powers-of-tau setup should be. Basically, how big is \(d_1\) and \(d_2\). That is completely dependent upon the system designer on how big of a polynomial do they want to support.
+                </p>
+
+                <p>
+                    Once the powers-of-tau ceremony is over, it is critical that at least one of the participants is honest and destroys the random secret it contributed. This ensures that the aggregate secret \(s\) remains random to everyone, even 
+                    if they look at the powers-of-tau &#129305;.
                 </p>
 
                 <div class="row">
@@ -316,6 +341,27 @@
                     </div>
                 </div>
 
+
+                <h4 style="font-size:20px;"><u>2. Commit</u></h4>
+                This step is for the prover to bind itself to the polynomial \(f(x)\) that it is in possession of, <i>aka</i> polynomial binding. In order to do so, the prover's just have to evaluate the commitment \(C\) given by
+
+                    \[ C = [f(s)]_1 \]
+
+                where \(s\) is the secret obtained during powers-of-tau ceremony that no one is supposed to know. You might be wondering that if secret \(s\) is unknown, then how the hell the prover is going to evaluate the commitment \(C\).
+                The trick here is to do linear combination of the group elements on the powers-of-tau. Recalling eq.(1), we have:
+
+                    $$  
+                    \begin{align}
+                        [f(s)]_1 &= [a_0 + a_1 s + a_2 s^2 + \cdots + a_d s^d]_1, \quad \quad \text{from eq. (1)}\\
+                                 &= (a_0 + a_1 s + a_2 s^2 + \cdots + a_d s^d) \cdot g_1 \\
+                                 &= a_0 \cdot g_1 + (a_1 s) \cdot g_1 + (a_2 s^2) \cdot g_1 + \cdots + (a_d s^d) \cdot g_1 \\
+                                 &= a_0 \cdot g_1 + a_1 \cdot (s \cdot g_1) + a_2 \cdot (s^2 \cdot g_1) + \cdots + a_d \cdot (s^d \cdot g_1) \\
+                                 &= a_0 [1]_1 + a_1 \cdot [s]_1 + a_2 \cdot [s^2] + \cdots + a_d \cdot [s^d]. 
+                    \end{align}
+                    $$
+
+                With this re-writing, the prover can  compute  the commitment \(C\) by picking the first \(d\) elements from the first vector in powers-of-tau and just do a linear combination on them while using the 
+                coeefficients of \(f(x)\) as the scalars. One important thing to observe that in order for above computation to be even possible, it is necessary that \(d \leq d_1 \).  
             </div>
         </div>
     </div>
