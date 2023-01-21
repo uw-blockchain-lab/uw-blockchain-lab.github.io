@@ -106,7 +106,7 @@
         object-fit: cover;
         width: 750px;
         height: 250px;
-        object-position: 10% 40%;
+        object-position: 10% 60%;
     }
     
     .cropgif1 {
@@ -115,6 +115,13 @@
         width: 750px;
         height: 320px;
         object-position: 10% 40%;
+    }
+
+    .shadedBox {
+        text-align: center;
+        border: 1px ;
+        padding: 10px;
+        box-shadow: 5px 10px 18px rgb(33, 85, 215);
     }
 
 </style>
@@ -323,7 +330,10 @@
                             &\{[1]_2, [s]_2, [s^2]_2, \cdots, [s^{d_2}]_2 \}
                            \end{align} 
                         $$
-                    Please check <a href="./../group_theory/index.html"> this </a> for further details on the above notations. Now, this powers-of-tau setup is a global knowledge that everyone will know &#127759.
+                    Please check <a href="./../group_theory/index.html"> this </a> for further details on the above notations. Now, 
+                    <div class="shadedBox">
+                        <p>&#127759 Powers-of-tau setup is a global knowledge that everyone will know.</p>
+                    </div>
                 </p>
 
                 <p>
@@ -343,25 +353,35 @@
 
 
                 <h4 style="font-size:20px;"><u>2. Commit</u></h4>
+                <p>
                 This step is for the prover to bind itself to the polynomial \(f(x)\) that it is in possession of, <i>aka</i> polynomial binding. In order to do so, the prover's just have to evaluate the commitment \(C\) given by
 
                     \[ C = [f(s)]_1 \]
 
                 where \(s\) is the secret obtained during powers-of-tau ceremony that no one is supposed to know. You might be wondering that if secret \(s\) is unknown, then how the hell the prover is going to evaluate the commitment \(C\).
-                The trick here is to do linear combination of the group elements on the powers-of-tau. Recalling eq.(1), we have:
+                </p>
 
-                    $$  
-                    \begin{align}
-                        [f(s)]_1 &= [a_0 + a_1 s + a_2 s^2 + \cdots + a_d s^d]_1, \quad \quad \text{from eq. (1)}\\
-                                 &= (a_0 + a_1 s + a_2 s^2 + \cdots + a_d s^d) \cdot g_1 \\
-                                 &= a_0 \cdot g_1 + (a_1 s) \cdot g_1 + (a_2 s^2) \cdot g_1 + \cdots + (a_d s^d) \cdot g_1 \\
-                                 &= a_0 \cdot g_1 + a_1 \cdot (s \cdot g_1) + a_2 \cdot (s^2 \cdot g_1) + \cdots + a_d \cdot (s^d \cdot g_1) \\
-                                 &= a_0 [1]_1 + a_1 \cdot [s]_1 + a_2 \cdot [s^2] + \cdots + a_d \cdot [s^d]. 
-                    \end{align}
-                    $$
+                <p>
+                    The trick here is to do linear combination of the group elements on the powers-of-tau. Recalling eq.(1), we have:
 
-                With this re-writing, the prover can  compute  the commitment \(C\) by picking the first \(d\) elements from the first vector in powers-of-tau and just do a linear combination on them while using the 
-                coeefficients of \(f(x)\) as the scalars. One important thing to observe that in order for above computation to be even possible, it is necessary that \(d \leq d_1 \).  
+                        $$  
+                        \begin{align}
+                            [f(s)]_1 &= [a_0 + a_1 s + a_2 s^2 + \cdots + a_d s^d]_1, \quad \quad \text{from eq. (1)}\\
+                                    &= (a_0 + a_1 s + a_2 s^2 + \cdots + a_d s^d) \cdot g_1 \\
+                                    &= a_0 \cdot g_1 + (a_1 s) \cdot g_1 + (a_2 s^2) \cdot g_1 + \cdots + (a_d s^d) \cdot g_1 \\
+                                    &= a_0 \cdot g_1 + a_1 \cdot (s \cdot g_1) + a_2 \cdot (s^2 \cdot g_1) + \cdots + a_d \cdot (s^d \cdot g_1) \\
+                                    &= a_0 \cdot [1]_1 + a_1 \cdot [s]_1 + a_2 \cdot [s^2]_1 + \cdots + a_d \cdot [s^d]_1. 
+                        \end{align}
+                        $$
+
+                    With this re-writing, the prover can  compute  the commitment \(C\) by picking the first \(d\) elements from the first vector in powers-of-tau and just do a linear combination on them while using the 
+                    coeefficients of \(f(x)\) as the scalars. One important thing to observe that in order for above computation to be even possible, it is necessary that \(d \leq d_1 \).  
+                </p>
+                
+                <div class="shadedBox">
+                    <p>&#9193 Prover sends commitment \(C\) to the verifier.</p>
+                </div>
+
             </div>
         </div>
     </div>
