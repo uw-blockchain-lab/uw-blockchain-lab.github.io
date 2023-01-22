@@ -72,6 +72,7 @@
     .styled-table th,
     .styled-table td {
         padding: 10px 15px;
+        border: 1px solid black;
         /* table-layout: auto;
         width: 100%; */
     }
@@ -113,7 +114,7 @@
         /* vertical-align: top; */
         object-fit: cover;
         width: 750px;
-        height: 500px;
+        height: 350px;
         object-position: 10% 40%;
     }
 
@@ -347,7 +348,7 @@
 
                 <div class="row">
                     <div class="col-sm mt-3 mt-md-0 mb-3">
-                    <img class="img-fluid cropgif rounded z-depth-1" src="/assets/img/ceremony.gif" alt="" title="intuition" />
+                    <img class="img-fluid cropgif1 rounded z-depth-1" src="/assets/img/ceremony.gif" alt="" title="intuition" />
                     </div>
                 </div>
 
@@ -386,7 +387,65 @@
                 <p style="margin-bottom:1cm;"></p>
 
                 <h4 style="font-size:20pxn"><u>3. Challenge</u></h4>
+                In this step, the verifier needs to inform the prover that at what point \(\alpha \in \mathcal{F}\) does it want the evaluation of \(f(x)\) at.
 
+
+                <div class="shadedBox">
+                    <p>&#9194 Verifer sends a point \(\alpha\) to the prover.</p>
+                </div>
+
+                <p style="margin-bottom:1cm;"></p>
+
+                <h4 style="font-size:20pxn"><u>4. Create witness</u></h4>
+                <p>
+                    Given that the verifier wants the polynomial \(f(x)\) to be evaluated at \(x=\alpha\), the prover now also has to compute a proof \(\pi\) that 
+                    can convince the verifier that prover did the evaluation correctly. To understand how this proof is constructed, we go back to polynomial division that we all learnt in schools &#129299.
+                </p>
+
+                <p>
+                    Suppose we take a constant polynomial \(g(x)\) as defined by:
+
+                        $$ g(x) = f(\alpha) \quad \forall x = \alpha.$$
+
+                    If we subtract this polynomial \(g(x)\) from \(f(x)\) as shown in the following animation, we end up getting the polynomial \(f(x) - g(x)\) which equals to 
+                    \(0\) at \(x=\alpha\). What this means is that \(x=\alpha\) is a root of the polynomial \(f(x) - g(x)\).
+                </p>
+
+                <div class="row">
+                    <div class="col-sm mt-3 mt-md-0 mb-3">
+                    <img class="img-fluid cropgif rounded z-depth-1" src="/assets/img/kzgwitness.gif" alt="" title="kzgwitness" />
+                    </div>
+                </div>
+
+                <p>
+                    A very nice property of polynomials is that \(x=\alpha\) is root of a given polynomial if and only if this polynomial is divisible by \(x-\alpha\). Therefore, our polynomial 
+                    \(f(x) - g(x)\) is also divisible by \(x-\alpha\). This can be written down as:
+
+                        $$ f(x) - g(x) = (x-\alpha) Q(x) $$
+
+                    for some polynomial \(Q(x)\) whose degree is less than that of \(f(x) - g(x)\). We now have:
+                    <div class="clearfix ml-2 ">
+                        <table class="styled-table">
+                            <thead>
+                                <tr>
+                                    <th><h2 class="line" style="font-size:24px;">Original problem</h2></th>
+                                    <th><h2 class="line" style="font-size:24px;">Translated problem</h2></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Prove that \(f(x)\) was evaluated correctly
+                                    </td>
+                                    <td>
+                                        Prove that \(f(x) - g(x)\) is divisible by \(x-\alpha\).
+                                    </td>
+                                </tr>
+                                <!-- and so on... -->
+                            </tbody>
+                        </table>
+                    </div> 
+                </p>
             </div>
         </div>
     </div>
