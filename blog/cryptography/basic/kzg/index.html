@@ -72,7 +72,7 @@
     .styled-table th,
     .styled-table td {
         padding: 10px 15px;
-        border: 1px solid black;
+        border: 1px solid rgb(25, 16, 16);
         /* table-layout: auto;
         width: 100%; */
     }
@@ -216,7 +216,7 @@
                  <p>Note that MathJax 3 is <a href="https://docs.mathjax.org/en/latest/upgrading/whats-new-3.0.html" target="\_blank">a major re-write of MathJax</a> that brought a significant improvement to the loading and rendering speed, which is now <a href="http://www.intmath.com/cg5/katex-mathjax-comparison.php" target="\_blank">on par with KaTeX</a>.</p>
             
             </article> -->
-            <h1 style="font-size:24px;">Motivation</h1>
+            <h1 style="font-size:20pxn;"><u>Motivation</u></h1>
                 <p>Suppose you are only one in the world who is in the possession of the following polynomial \(f(x)\) of the form:</p>  
 
                     \[ f(x) = a_0 + a_1 x + a_2 x^2 + \cdots + a_d x^d, \tag{1} \] 
@@ -252,7 +252,8 @@
                 </p>
 
                 
-                <h1 style="font-size:24px;">Intuition</h1>
+                
+                <h1 style="font-size:20pxn"><u>Intuition</u></h1>
                 <p>Referring to Fig.1, a wishful thinking would be what if you can generate a "very short" evidence \(\pi\) such that:
                    <ul>
                     <li> you can send the evidence \(\pi\) to your friend along with the value \(y\) that would convince your friend \(y == f(10)\), and </li>
@@ -291,7 +292,7 @@
 
 
 
-                <h1 style="font-size:24px;">KZG Polynomial Commitment Protocol</h1>
+                <h1 style="font-size:20pxn"><u>KZG Protocol</u></h1>
                 <p>KZG polynomial commitment was proposed by Kate (pronounced as "Katey"), Zaverucha and Goldberg in this <a href="https://www.iacr.org/archive/asiacrypt2010/6477178/6477178.pdf">paper</a> back in 2010.
                 In a change of notation that we will be following consistently from now on, we will call the person claiming to be in possession of polynomial \(f(x)\) as "prover"
                 and the other person who wants an evaluation of that polynomial \(f(x)\) (recall that this person doesn't know the coeffcients of \(f(x)\)) as "verifier".
@@ -303,7 +304,7 @@
                     in the more complex protocols that you will read later.
                 </p>
 
-                <h4 style="font-size:20px;"><u>1. Setup</u></h4>
+                <h2 style="font-size:20pxn"><u>1. Setup</u></h2>
                 <p>
                     Okay, this might sound very weird at first but the first step of KZG protocol is to have a ceremony where many folks (preferrably hundreds and thousands of people from around the world) come together to contribute 
                     towards constructing a special object called <i>powers-of-tau</i>. I am sure this might not be apparent but powers-of-tau and its security is super-critical to get the property of polynomial binding and hiding. This 
@@ -353,11 +354,11 @@
                 </div>
 
 
-                <h4 style="font-size:20px;"><u>2. Commit</u></h4>
+                <h2 style="font-size:20pxn"><u>2. Commit</u></h2>
                 <p>
                 This step is for the prover to bind itself to the polynomial \(f(x)\) that it is in possession of, <i>aka</i> polynomial binding. In order to do so, the prover's just have to evaluate the commitment \(C\) given by
 
-                    \[ C = [f(s)]_1 \]
+                    \[ C = [f(s)]_1  \tag{2}\]
 
                 where \(s\) is the secret obtained during powers-of-tau ceremony that no one is supposed to know. You might be wondering that if secret \(s\) is unknown, then how the hell the prover is going to evaluate the commitment \(C\).
                 </p>
@@ -375,28 +376,30 @@
                         \end{align}
                         $$
 
-                    With this re-writing, the prover can  compute  the commitment \(C\) by picking the first \(d\) elements from the first vector in powers-of-tau and just do a linear combination on them while using the 
-                    coeefficients of \(f(x)\) as the scalars. One important thing to observe that in order for above computation to be even possible, it is necessary that \(d \leq d_1 \). Finally,
+                    With this re-writing, the prover can  compute  the commitment \(C\) by picking the first \(d\) elements from the first vector in powers-of-tau, do a scalar multiplication on each of these points on the group \(G_1\) using their 
+                    respective coefficients in \(f(x)\) and then add them. This process is commonly referred to as Multi-Scalar Multiplication (MSM). One important thing to observe that in order for above computation to 
+                    be even possible, it is necessary that \(d \leq d_1 \). Finally,
                 </p>
                 
                 
                 <div class="shadedBox">
-                    <p>&#9193 Prover sends commitment \(C\) to the verifier.</p>
+                    <p>&#9193 Prover sends commitment \(C \in G_1\) to the verifier.</p>
                 </div>
 
                 <p style="margin-bottom:1cm;"></p>
 
-                <h4 style="font-size:20pxn"><u>3. Challenge</u></h4>
+                <h2 style="font-size:20pxn"><u>3. Challenge</u></h2>
+                <p>
                 In this step, the verifier needs to inform the prover that at what point \(\alpha \in \mathcal{F}\) does it want the evaluation of \(f(x)\) at.
-
+                </p>
 
                 <div class="shadedBox">
-                    <p>&#9194 Verifer sends a point \(\alpha\) to the prover.</p>
+                    <p>&#9194 Verifer sends a point \(\alpha \in \mathbb{F}\) to the prover.</p>
                 </div>
 
                 <p style="margin-bottom:1cm;"></p>
 
-                <h4 style="font-size:20pxn"><u>4. Create witness</u></h4>
+                <h2 style="font-size:20pxn"><u>4. Create witness</u></h2>
                 <p>
                     Given that the verifier wants the polynomial \(f(x)\) to be evaluated at \(x=\alpha\), the prover now also has to compute a proof \(\pi\) that 
                     can convince the verifier that prover did the evaluation correctly. To understand how this proof is constructed, we go back to polynomial division that we all learnt in schools &#129299.
@@ -418,14 +421,14 @@
                 </div>
 
                 <p>
-                    A very nice property of polynomials is that \(x=\alpha\) is root of a given polynomial if and only if this polynomial is divisible by \(x-\alpha\). Therefore, our polynomial 
+                    A very nice property of polynomials is that \(x=\alpha\) is root of a given polynomial if and only if this polynomial is divisible by \((x-\alpha)\) &#128558. Therefore, our polynomial 
                     \(f(x) - g(x)\) is also divisible by \(x-\alpha\). This can be written down as:
 
-                        $$ f(x) - g(x) = (x-\alpha) Q(x) $$
+                        $$ f(x) - g(x)  = f(x) - f(\alpha) = (x-\alpha) Q(x) \tag{3}$$
 
-                    for some polynomial \(Q(x)\) whose degree is less than that of \(f(x) - g(x)\). We now have:
+                    for some polynomial \(Q(x)\) whose degree is less than that of \(f(x) - f(\alpha)\). In the second equality, we used the fact that \(g(x)\) is constant polynomial. For the prover, we now have:
                     <div class="clearfix ml-2 ">
-                        <table class="styled-table">
+                        <table class="styled-table center">
                             <thead>
                                 <tr>
                                     <th><h2 class="line" style="font-size:24px;">Original problem</h2></th>
@@ -435,17 +438,95 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        Prove that \(f(x)\) was evaluated correctly
+                                        Prove that \(f(x)\) was evaluated correctly at \(x=\alpha\).
                                     </td>
                                     <td>
-                                        Prove that \(f(x) - g(x)\) is divisible by \(x-\alpha\).
+                                        Prove that \(f(x) - f(\alpha)\) is divisible by \(x-\alpha\).
                                     </td>
                                 </tr>
                                 <!-- and so on... -->
                             </tbody>
                         </table>
                     </div> 
+
+                    Solving this translated problem is much easier using pairings. As part of that process, the prover uses the polynomial \(Q(x)\) obtained before to generate
+                    the proof \(\pi\):
+                    
+                        $$ \pi = [Q(s)]_1 \tag{4}$$
+
+                    where \(s\) is the secret obtained from powers-of-tau ceremony. We use the same linear combination of elements from powers-of-tau as in step 2 to generate \(\pi\).
+                    Finally,
                 </p>
+                    <div class="shadedBox">
+                        <p>&#9193 Prover sends evaluation \(f(\alpha) \in \mathbb{F}\) and proof \(\pi \in G_1\) to the verifier.</p>
+                    </div>
+                
+                <p style="margin-bottom:1cm;"></p>
+
+                <h2 style="font-size:20pxn"><u>5. Verify evaluation</u></h2>
+                Observe that the verifer now has the following data in its possession:
+                <ul>
+                    <li> point \(\alpha\) </li>
+                    <li> commitment \(C\) from the verifier, </li>
+                    <li> proof \(\pi\) from the verifier, </li>
+                    <li> evaluation \(y\) from the verifier.</li>
+                </ul>
+                <P>
+                All now the verifier has to check is whether these four data points satisfy eq. (3) or not. However, now the issue is \(\alpha, y \in \mathbb{F}\) and \(C, \pi \in G_1\). This 
+                is where we will be using the awesome capabilities of pairings &#128526. The verifer simply checks that
+
+                    $$ e(\pi, [s - \alpha]_2) \stackrel{?}{=} e(C - [y]_1, [1]_2). \tag{5}$$ 
+
+                To understand the intuition why this verification works, let us consider the scenario where the prover is honest. Unwrapping the LHS of eq. (5), we have
+
+                    $$ 
+                    \begin{align}
+                        e(\pi, [s - \alpha]_2) &= e( [Q(s)]_1, [s - \alpha]_2) \\
+                                               &= e\Bigg( \Big[\frac{f(s) - f(a)}{s-a}\Big]_1, [s - \alpha]_2\Bigg) \text{ where we used eq. (3) and (4)}\\
+                                               &= e([1]_1, [s - \alpha]_2)^{\frac{f(s) - f(a)}{s-a}} \\
+                                               &= e([1]_1, [1]_2)^{\left[\frac{f(s) - f(a)}{s-a}\right] (s - \alpha)} \\
+                                               &= e([1]_1, [1]_2)^{f(s) - f(a)} \\
+                                               &= e([f(s) - f(a)]_1, [1]_2) \\
+                                               &= e((f(s) - f(a))\cdot g_1, [1]_2) \\
+                                               &= e(f(s) \cdot g_1 - f(a) \cdot g_1, [1]_2) \\
+                                               &= e(C - [f(a)]_1, [1]_2) \text{ where we used eq. (2)}
+
+                    \end{align}    
+                    $$
+
+                </P>    
+                <h4 style="font-size:15pxn"><u>5.1. KZG protocol in production on Ethereum</u></h4>
+                <p>
+                    Observe that \([s - \alpha]_2 = (s - \alpha)\cdot g_2 = s \cdot g_2 - \alpha \cdot g_2 = [s]_2 - [\alpha]_2 = [s]_2 - \alpha \cdot [1]_2\). The verifier can compute \( \alpha \cdot [1]_2\) by scalar 
+                    multiplication of \(\alpha\) with \([1]_2\) (which is the first element of second vector in the power-of-tau setup) on \(G_2\). However, most of you will be running verifier as a smart contract on Ethereum. Unfortunately, EVM provides 
+                    for <a href="https://www.evm.codes/precompiled#0x07?fork=grayGlacier">precompiled code by the name ec-Mul </a> for doing scalar multiplication only on \(G_1\) &#128531. 
+                </p>    
+                
+                <p>
+                    The trick that you must use in production involves re-writing eq. (5) as:
+
+                    $$
+                        \begin{align}
+                            & e(\pi, [s - \alpha]_2) \stackrel{?}{=} e(C - [y]_1, [1]_2)\\
+                            \implies & e(\pi, (s - \alpha)\cdot g_2) \stackrel{?}{=} e(C - [y]_1, [1]_2) \\
+                            \implies & e(\pi, s\cdot g_2 - \alpha \cdot g_2) \stackrel{?}{=} e(C - [y]_1, [1]_2) \\
+                            \implies & e(\pi, s\cdot g_2) e(\pi, - \alpha \cdot g_2) \stackrel{?}{=} e(C - [y]_1, [1]_2) \\
+                            \implies & e(\pi, s\cdot g_2) e(\pi, \alpha \cdot g_2)^{-1} \stackrel{?}{=} e(C - [y]_1, [1]_2) \\
+                            \implies & e(\pi, s\cdot g_2) \stackrel{?}{=} e(C - [y]_1, [1]_2) e(\pi, \alpha \cdot g_2) \\
+                            \implies & e(\pi, [s]_2) \stackrel{?}{=} e(C - [y]_1, [1]_2) e(\pi, [1]_2)^{\alpha} \\
+                            \implies & e(\pi, [s]_2) \stackrel{?}{=} e(C - [y]_1, [1]_2) e(\alpha \cdot \pi, [1]_2)\\
+                            \implies & e(\pi, [s]_2) \stackrel{?}{=} e(C - [y]_1 + \alpha \cdot \pi, [1]_2)
+                        \end{align}
+                    $$                        
+                </p>    
+                <p>
+                    With the above equivalent verification check in hand, the verifier would instead first compute \([y]_1\) by scalar multiplication of \(y\) with \([1]_1\) (obtained from powers-of-tau setup) using ec-Mul precompiled op-code  &#128524.
+                    A similar scalar multiplication is  done between the scalar \(\alpha\) and the proof \(\pi\). Now, point addition on \(G_1\) is done among \(C, [y]_1\) and \(\alpha \cdot \pi\). For your convenience, EVM provides
+                    <a href="https://www.evm.codes/precompiled#0x06?fork=merge"> precompiled code by the name ec-Add </a> that you can use to do point addition on G_1 &#128524. 
+                </p>
+
+                <h1 style="font-size:20pxn"><u>Why does the KZG protocol work?</u></h1>    
+                    Y'all might be curious why does this alien-looking equation works? Well, 
             </div>
         </div>
     </div>
